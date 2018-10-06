@@ -1,0 +1,7 @@
+{
+  "name": "tournamentApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
