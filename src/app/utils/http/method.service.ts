@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { url } from 'inspector';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+
 
 @Injectable()
 export class MethodService {
 
-  public api: string;
+  public api = 'http://127.0.0.1:3000/';
+
 
   constructor(
     private http: HttpClient
@@ -29,10 +30,10 @@ export class MethodService {
     if (query) {
       getUrl = `${urlServices}?filter=${query}`;
     } else {
-      getUrl = urlServices;
+      getUrl = this.api + urlServices;
     }
 
-    return this.http.get(this.api + getUrl);
+    return this.http.get(getUrl);
 
   }
 
@@ -64,7 +65,19 @@ export class MethodService {
   * @return {Response}
   */
 
-  post(urlServices: string, id:string, data:any){
+  post(urlServices: string, id: string, data: any) {
+    return this.http.post(this.api + `${urlServices}/${id}`, data)
+  }
+
+  /**
+  * Perfors any type of http request
+  * @param urlServices
+  * @param id
+  * @param data
+  * @return {Response}
+  */
+
+  put(urlServices: string, id: string, data: any) {
     return this.http.put(this.api + `${urlServices}/${id}`, data)
   }
 
@@ -75,7 +88,7 @@ export class MethodService {
   * @return {Response}
   */
 
-  delete(urlServices: string, id: string){
+  delete(urlServices: string, id: string) {
     return this.http.delete(this.api + `${urlServices}/${id}`)
   }
 
