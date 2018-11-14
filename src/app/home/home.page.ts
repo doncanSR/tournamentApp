@@ -15,7 +15,6 @@ export class HomePage implements OnInit {
     private methodService: MethodService
   ) { }
   ngOnInit() {
-    this.login()
   }
 
   getTeams() {
@@ -25,19 +24,6 @@ export class HomePage implements OnInit {
           // console.log('data', data)
         },
         err => console.log('Error', err)
-      )
-  }
-  login() {
-    let body = {
-      roleId: '5bd48e31d920380a34f0c7cb',
-      password: 'Qwerty66'
-    };
-    this.methodService.post('role/auth', body)
-      .subscribe(
-        data => {
-          console.log(data)
-        },
-        err => console.log(err)
       )
   }
 }
