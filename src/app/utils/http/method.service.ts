@@ -65,8 +65,8 @@ export class MethodService {
   * @return {Response}
   */
 
-  post(urlServices: string, id: string, data: any) {
-    return this.http.post(this.api + `${urlServices}/${id}`, data)
+  post(urlServices: string, data: any) {
+    return this.http.post(this.api + `${urlServices}`, data)
   }
 
   /**

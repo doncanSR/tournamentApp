@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { InterceptService} from './utils/intercept.service';
 
 //Module core
 import { AuthModule } from "./auth/auth.module";
@@ -38,6 +39,12 @@ export function createTranslateLoader(http: HttpClient){
     AppRoutingModule],
   providers: [
     StatusBar,
+    InterceptService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptService,
+      multi: true
+    },
     SplashScreen,
     MethodService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
