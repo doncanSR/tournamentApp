@@ -7,25 +7,23 @@ import { MethodService } from '../utils/http/method.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
 
   teams: any;
 
   constructor(
     private methodService: MethodService
-  ){  }
-  ngOnInit(){
-    this.getTeams()
-    console.log('Home page star!!')
+  ) { }
+  ngOnInit() {
   }
 
-  getTeams(){
+  getTeams() {
     this.methodService.get('teams', null)
-    .subscribe(
-      data => {
-        console.log('data', data)
-      },
-      err => console.log('Error', err)
-    )
+      .subscribe(
+        data => {
+          // console.log('data', data)
+        },
+        err => console.log('Error', err)
+      )
   }
 }

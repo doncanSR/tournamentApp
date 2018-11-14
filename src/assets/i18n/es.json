@@ -1,5 +1,12 @@
 {
+  "WELCOME": "Bienvenido",
   "AUTH":{
-    "LOGIN": "Iniciar sesion"
+    "LOGIN":{
+      "TITLE":  "Iniciar sesion",
+      "EMAIL": "Correo electronico",
+      "PASSWORD": "Contaseña"
+    },
+    "RECOVER_PASSWORD": "Recuperar contraseña",
+    "SING_UP": "Registrate"
   }
 }
