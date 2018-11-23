@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>{{ 'AUTH.LOGIN.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,8 +22,19 @@
           <ion-input></ion-input>
         </ion-item>
       </ion-col>
+      <ion-col size="12">
+        <ion-button size="big" expand= "full" class="login">Iniciar sesion</ion-button>
+      </ion-col>
+      <ion-col size="12" text-center>
+          <p>
+              O
+          </p>
+      </ion-col>
       <ion-col text-center padding size="12">
-        <a [href]="'/recovery-password'">{{ 'AUTH.RECOVER_PASSWORD' | translate}}</a>
+          <a [href]="" color="secondary">Registrate</a>
+      </ion-col>
+      <ion-col text-center padding size="12">
+      <a [href]="'/recovery-password'">{{ 'AUTH.RECOVER_PASSWORD' | translate}}</a>
       </ion-col>
     </ion-row>
   </ion-grid>
