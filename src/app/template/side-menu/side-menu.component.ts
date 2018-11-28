@@ -9,19 +9,23 @@ export class SideMenuComponent implements OnInit {
   pages:any = [
     {
       title:'Usuario',
-      index:0
+      index:0,
+      route:'/login'
     },
     {
       title:'Equipo',
-      index:2
+      index:2,
+      route:'/equipo'
     },
     {
       title:'Resultado',
-      index:3
+      index:3,
+      route:'/results'
     },
     {
       title:'Torneo',
-      index:4
+      index:4,
+      route:'/tournament'
     }
   ]
   constructor() { }
