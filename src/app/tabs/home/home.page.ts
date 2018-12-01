@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MethodService } from '../utils/http/method.service';
+import { MethodService } from '../../utils/http/method.service';
 
 
 @Component({

@@ -12,6 +12,7 @@ import { InterceptService} from './utils/intercept.service';
 //Module core
 import { AuthModule } from "./auth/auth.module";
 import { AppRoutingModule } from './app-routing.module';
+import { TabsPageModule } from "./tabs/tabs.module";
 import { AppComponent } from './app.component';
 import { MethodService } from './utils/http/method.service';
 import { TemplateModule } from './template/template.module';
@@ -25,7 +26,8 @@ export function createTranslateLoader(http: HttpClient){
   entryComponents: [],
   imports: [
     BrowserModule,
-    AuthModule, 
+    AuthModule,
+    TabsPageModule, 
     TemplateModule,
     HttpClientModule,
     IonicModule.forRoot(), 
