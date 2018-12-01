@@ -6,6 +6,8 @@
 </ion-header>
 <ion-list padding>
   <ion-item *ngFor="let p of pages" margin-vertical text-left>
-    <ion-label>{{p.title}}</ion-label>
+    <a href="{{p.route}}">
+      <ion-label>{{p.title}}</ion-label>
+    </a>
   </ion-item>
 </ion-list>
