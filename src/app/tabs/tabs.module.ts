@@ -7,15 +7,15 @@ import { TemplateModule } from "../template/template.module";
 import { TabsRouting } from './tabs.routing';
 
 import { TabsPage } from './tabs.page';
-import { AboutPage } from "./about/about.page";
-import { ContactPage } from "./contact/contact.page";
+import { TeamPage } from "./teams/team.page";
+import { ResultPage } from "./results/result.page";
 import { HomePage } from "./home/home.page";
 
 const TabsPages : any = [
   TabsPage,
   HomePage,
-  ContactPage,
-  AboutPage
+  ResultPage,
+  TeamPage
 ]
 
 @NgModule({
