@@ -8,5 +8,10 @@
     },
     "RECOVER_PASSWORD": "Recuperar contraseña",
     "SING_UP": "Registrate"
+  },
+  "TABS":{
+    "HOME": "Inico",
+    "RESULT":"Resultado",
+    "TEAM":"Equipo"
   }
 }

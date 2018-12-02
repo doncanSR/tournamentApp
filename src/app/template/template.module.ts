@@ -4,8 +4,10 @@ import { IonicModule } from "@ionic/angular";
 import { FormsModule } from "@angular/forms";
 import { TranslateModule } from "@ngx-translate/core";
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { HeaderComponent } from './header/header.component';
 const templateComponents: any = [
-  SideMenuComponent
+  SideMenuComponent,
+  HeaderComponent
 ]
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ const templateComponents: any = [
     templateComponents
   ],
   declarations: [
-    ...templateComponents
+    ...templateComponents,
   ]
 })
 export class TemplateModule { }
