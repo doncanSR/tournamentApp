@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar text-left color="primary" class="nav-style">
+    <h2> Menu</h2>
+    <h5>Admin</h5>
+  </ion-toolbar>
+</ion-header>
+<ion-list padding>
+  <ion-item *ngFor="let p of pages" margin-vertical text-left>
+    <a href="{{p.route}}">
+      <ion-label>{{p.title}}</ion-label>
+    </a>
+  </ion-item>
+</ion-list>

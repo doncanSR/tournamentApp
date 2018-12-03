@@ -3,18 +3,25 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from "@ionic/angular";
 import { FormsModule } from "@angular/forms";
 import { TranslateModule } from "@ngx-translate/core";
-
+import { SideMenuComponent } from './side-menu/side-menu.component';
+const templateComponents: any = [
+  SideMenuComponent
+]
 @NgModule({
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    IonicModule
   ],
   exports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TranslateModule
+    TranslateModule,
+    templateComponents
   ],
-  declarations: []
+  declarations: [
+    ...templateComponents
+  ]
 })
 export class TemplateModule { }

@@ -1,26 +1,33 @@
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TemplateModule } from "../template/template.module";
 
-import { TabsPageRoutingModule } from './tabs.router.module';
+import { TabsRouting } from './tabs.routing';
 
 import { TabsPage } from './tabs.page';
-import { ContactPageModule } from '../contact/contact.module';
-import { AboutPageModule } from '../about/about.module';
-import { HomePageModule } from '../home/home.module';
+import { AboutPage } from "./about/about.page";
+import { ContactPage } from "./contact/contact.page";
+import { HomePage } from "./home/home.page";
+
+const TabsPages : any = [
+  TabsPage,
+  HomePage,
+  ContactPage,
+  AboutPage
+]
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule,
-    HomePageModule,
-    AboutPageModule,
-    ContactPageModule
+    TabsRouting,
+    TemplateModule
   ],
-  declarations: [TabsPage]
+  declarations: [
+    ...TabsPages
+  ]
 })
 export class TabsPageModule {}
