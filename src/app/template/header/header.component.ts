@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isLogged(){
-    if (localStorage.TOKEN) {
+    if (sessionStorage.TOKEN) {
       this.logged = true;
     }
   }
