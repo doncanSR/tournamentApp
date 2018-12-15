@@ -3,13 +3,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <!-- <h3>{{team.name}}</h3> -->
-
-    <ion-button size="small">Small Button</ion-button>
+  <ion-card *ngFor="let card of cards">
+    <ion-card-header>
+      <ion-card-subtitle>{{card.subTitle}}</ion-card-subtitle>
+      <ion-card-title>{{card.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{card.description}}
+    </ion-card-content>
   </ion-card>
-  <ion-button (click)="getTeams()">
-    <ion-icon name="camera"></ion-icon>
-    <ion-label>Photo</ion-label>
-  </ion-button>
 </ion-content>

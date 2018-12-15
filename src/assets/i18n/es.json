@@ -1,17 +1,21 @@
 {
   "WELCOME": "Bienvenido",
-  "AUTH":{
-    "LOGIN":{
-      "TITLE":  "Iniciar sesion",
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Iniciar sesion",
       "EMAIL": "Correo electronico",
-      "PASSWORD": "Contaseña"
+      "PASSWORD": "Contaseña",
+      "ACTION": "Entrar"
     },
     "RECOVER_PASSWORD": "Recuperar contraseña",
-    "SING_UP": "Registrate"
+    "SING_UP": "Registrate",
+    "ERROR":"Esta campo es requerido",
+    "ERROR_PASSWORD": "La contraseña debe de contener al menos 8 caracteres",
+    "ERROR_MAIL":"La direccion de correo es invalida"
   },
-  "TABS":{
+  "TABS": {
     "HOME": "Inico",
-    "RESULT":"Resultado",
-    "TEAM":"Equipo"
+    "RESULT": "Resultado",
+    "TEAM": "Equipo"
   }
 }

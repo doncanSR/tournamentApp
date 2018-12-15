@@ -9,22 +9,28 @@ import { MethodService } from '../../utils/http/method.service';
 })
 export class HomePage implements OnInit {
 
-  teams: any;
-  header_title: string;
+  cards: any = [
+    {
+      title: 'Team 1 vs Team 2',
+      subTitle: 'the result',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien et ligula ullamcorper malesuada proin libero nunc. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Quis lectus nulla at volutpat diam ut venenatis tellus in. Lacus luctus accumsan tortor posuere.'
+    },
+    {
+      title: 'Team 3 vs Team 4',
+      subTitle: 'the result',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien et ligula ullamcorper malesuada proin libero nunc. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Quis lectus nulla at volutpat diam ut venenatis tellus in. Lacus luctus accumsan tortor posuere.'
+    },
+    {
+      title: 'Team 6 vs Team 8',
+      subTitle: 'the result',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien et ligula ullamcorper malesuada proin libero nunc. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Quis lectus nulla at volutpat diam ut venenatis tellus in. Lacus luctus accumsan tortor posuere.'
+    }
+  ]
 
   constructor(
-    private methodService: MethodService
+    
   ) { }
   ngOnInit() {
-  }
-  
-  getTeams() {
-    this.methodService.get('teams', null)
-      .subscribe(
-        data => {
-          // console.log('data', data)
-        },
-        err => console.log('Error', err)
-      )
+
   }
 }
