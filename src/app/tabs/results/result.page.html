@@ -3,17 +3,57 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid fixed>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Resultados de hoy</ion-card-subtitle>
+        <ion-card-title>Grupo 1</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row>
+          <ion-col *ngFor="let rowHeader of headerColumns">{{rowHeader}}</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let content of table">
+          <ion-col>{{content.name}}</ion-col>
+          <ion-col>{{content.points}}</ion-col>
+          <ion-col>{{content.position}}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card padding>
+      <ion-card-header>
+        <ion-card-subtitle>Resultados de hoy</ion-card-subtitle>
+        <ion-card-title>Grupo 2</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row>
+          <ion-col *ngFor="let rowHeader of headerColumns">{{rowHeader}}</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let content of table">
+          <ion-col>{{content.name}}</ion-col>
+          <ion-col>{{content.points}}</ion-col>
+          <ion-col>{{content.position}}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card padding>
+      <ion-card-header>
+        <ion-card-subtitle>Resultados de hoy</ion-card-subtitle>
+        <ion-card-title>Grupo 3</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row>
+          <ion-col *ngFor="let rowHeader of headerColumns">{{rowHeader}}</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let content of table">
+          <ion-col>{{content.name}}</ion-col>
+          <ion-col>{{content.points}}</ion-col>
+          <ion-col>{{content.position}}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
 </ion-content>
