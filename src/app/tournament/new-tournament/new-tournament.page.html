@@ -1,9 +1,54 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>new-tournament</ion-title>
-  </ion-toolbar>
+  <app-header title="Crear nuevo torneo"></app-header>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-grid fixed>
+    <form [formGroup]="newTournament" (ngSubmit)="createTournament()">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.name.errors }" position="floating">{{
+              'TOURNAMENT.NEW_TORNAMENT.NAME' | translate}}</ion-label>
+            <ion-input type="text" formControlName="name" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.state.errors }" position="floating">{{
+              'TOURNAMENT.NEW_TORNAMENT.STATE' | translate}}</ion-label>
+            <ion-input type="text" formControlName="state" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.city.errors }" position="floating">{{
+              'TOURNAMENT.NEW_TORNAMENT.CITY' | translate}}</ion-label>
+            <ion-input type="text" formControlName="city" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.city.errors }" position="floating">{{
+              'TOURNAMENT.NEW_TORNAMENT.START_DATE' | translate}}</ion-label>
+            <ion-datetime formControlName="starDate" class="form-control" displayFormat="MM DD YY"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.city.errors }" position="floating">{{
+              'TOURNAMENT.NEW_TORNAMENT.END_DATE' | translate}}</ion-label>
+            <ion-datetime formControlName="endDate" class="form-control" displayFormat="MM DD YY"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col padding size="12" text-center>
+          <ion-button color="primary" [disabled]="newTournament.invalid" type="submit" expand="full">{{
+            'TOURNAMENT.NEW_TORNAMENT.ACTION' |
+            translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>

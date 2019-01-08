@@ -17,5 +17,16 @@
     "HOME": "Inico",
     "RESULT": "Resultado",
     "TEAM": "Equipo"
+  },
+  "TOURNAMENT": {
+    "NEW_TORNAMENT":{
+      "TITLE": "Iniciar nuevo torneo",
+      "NAME": "Nombre",
+      "STATE":"Estado",
+      "CITY": "Ciudad",
+      "START_DATE": "Fecha de inicio",
+      "END_DATE": "Fecha de termino",
+      "ACTION": "Crear"
+    }
   }
 }
