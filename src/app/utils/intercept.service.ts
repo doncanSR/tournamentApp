@@ -21,11 +21,11 @@ export class InterceptService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     // modify request
-    if(localStorage.TOKEN){
+    if(sessionStorage.TOKEN){
       request = request.clone({
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'x-access-token': localStorage.TOKEN
+          'x-access-token': sessionStorage.TOKEN
         })
       });
     }
@@ -34,7 +34,7 @@ export class InterceptService implements HttpInterceptor {
         tap(event => {
           if (event instanceof HttpResponse) {
             if (event.body.token) {
-              localStorage.setItem("TOKEN", event.body.token);
+              sessionStorage.setItem("TOKEN", event.body.token);
             }
           }
         }, error => {

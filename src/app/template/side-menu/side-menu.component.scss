@@ -8,4 +8,7 @@ ion-toolbar.nav-style {
 ion-item {
   --border-color: white;
   color: var( --ion-color-medium);
+  a{
+    text-decoration: none;
+  }
 }
