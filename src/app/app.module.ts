@@ -16,6 +16,10 @@ import { TabsPageModule } from "./tabs/tabs.module";
 import { AppComponent } from './app.component';
 import { MethodService } from './utils/http/method.service';
 import { TemplateModule } from './template/template.module';
+import { GameModule } from "./game/game.module";
+import { ManagersModule } from "./managers/managers.module";
+import { TeamModule } from "./team/team.module";
+import { TournamentModule } from "./tournament/tournament.module";
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -27,6 +31,10 @@ export function createTranslateLoader(http: HttpClient){
   imports: [
     BrowserModule,
     AuthModule,
+    ManagersModule,
+    TournamentModule,
+    TeamModule,
+    GameModule,
     TabsPageModule, 
     TemplateModule,
     HttpClientModule,
