@@ -8,11 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class SideMenuComponent implements OnInit {
   pages:any = [
     {
-      title:'Usuario',
-      index:0,
-      route:'/login'
-    },
-    {
       title:'Equipo',
       index:2,
       route:'/equipo'
