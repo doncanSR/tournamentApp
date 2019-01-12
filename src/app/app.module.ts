@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { JwtModule } from '@auth0/angular-jwt';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -24,7 +25,9 @@ import { TournamentModule } from "./tournament/tournament.module";
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
-
+export function token(){
+  return sessionStorage.TOKEN || null;
+}
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -39,6 +42,11 @@ export function createTranslateLoader(http: HttpClient){
     TemplateModule,
     HttpClientModule,
     IonicModule.forRoot(), 
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: token
+      }
+    }),
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
