@@ -5,7 +5,8 @@
       "TITLE": "Iniciar sesion",
       "EMAIL": "Correo electronico",
       "PASSWORD": "Contaseña",
-      "ACTION": "Entrar"
+      "ACTION": "Entrar",
+      "LOGOUT":"Salir"
     },
     "RECOVER_PASSWORD": "Recuperar contraseña",
     "SING_UP": "Registrate",

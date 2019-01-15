@@ -14,18 +14,14 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let rol = route.data.role;
-    let tokenRol;
-    if (sessionStorage.TOKEN) {
-      // logged in so return true
-      tokenRol = this.jwtHelperService.decodeToken(sessionStorage.TOKEN);
-      if (rol === tokenRol['role']) {
+    if (sessionStorage.TOKEN && sessionStorage.ROL) {
+      if (rol === sessionStorage.ROL) {
         return true;
       } else {
         this.router.navigate([''], {});
         return false;
       }
     }
-
     this.router.navigate([''], {});
     return false;
   }
