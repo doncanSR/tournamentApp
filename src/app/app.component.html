@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane>
-    <ion-menu menuId="avocadoMenu" side="start" type="overlay">
+    <ion-menu *ngIf="isLogged" menuId="avocadoMenu" side="start" type="overlay">
       <app-side-menu></app-side-menu>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { JwtModule } from '@auth0/angular-jwt';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -20,11 +21,15 @@ import { GameModule } from "./game/game.module";
 import { ManagersModule } from "./managers/managers.module";
 import { TeamModule } from "./team/team.module";
 import { TournamentModule } from "./tournament/tournament.module";
+import { PlayerModule } from "./player/player.module";
+import { RefereeModule } from "./referee/referee.module";
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
-
+export function token(){
+  return sessionStorage.TOKEN || null;
+}
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,11 +39,18 @@ export function createTranslateLoader(http: HttpClient){
     ManagersModule,
     TournamentModule,
     TeamModule,
+    PlayerModule,
     GameModule,
     TabsPageModule, 
+    RefereeModule,
     TemplateModule,
     HttpClientModule,
     IonicModule.forRoot(), 
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: token
+      }
+    }),
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
