@@ -21,8 +21,15 @@ export class RegistryGamePage implements OnInit {
   }
   createForm(){
     this.newGame = this.formBuilder.group({
-      teamOne: ['', [Validators.required]],
-      teamTwo: ['', [Validators.required]]
+      teamOne: ['', []],
+      teamTwo: ['', []],
+      matchHour: ['', [Validators.required]],
+      matchDate: ['', [Validators.required]],
+      pointTOne: ['', [Validators.required]],
+      pointTTwo: ['', [Validators.required]],
+      setTOne: ['', [Validators.required]],
+      setTTwo: ['', [Validators.required]],
+      referee: ['', [Validators.required]]
     });
   }
 
