@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MethodService } from '../../utils/http/method.service';
+import { AuthService } from "../service/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private methodService: MethodService
+    private authService:AuthService
   ) { }
 
   ngOnInit() {
@@ -34,17 +34,19 @@ export class LoginPage implements OnInit {
 
   doLogin() {
     this.submitted = true;
+    let isLogged:boolean;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     } else {
-      this.methodService.post('role/auth', this.registerForm.value)
-        .subscribe(
-          data => {
-            this.goHome()
-          },
-          err => console.log('Error', err)
-        )
+      this.authService.login(this.registerForm.value).subscribe(
+        data => {
+          this.router.navigateByUrl('/tabs/(home:home)');
+        },
+        err => {
+          console.log('Error', err)
+        }
+      )
     }
   }
 }
