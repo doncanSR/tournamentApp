@@ -9,13 +9,13 @@
         <ion-col size="6">
           <ion-item>
             <ion-label>Hour</ion-label>
-            <ion-datetime display-format="HH:mm"></ion-datetime>
+            <ion-datetime formControlName="matchHour" display-format="HH:mm"></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-item>
             <ion-label>Date</ion-label>
-            <ion-datetime display-format="MM/DD/YYYY"></ion-datetime>
+            <ion-datetime formControlName="matchDate" display-format="MM/DD/YYYY"></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size="6" text-center>
@@ -26,54 +26,41 @@
         </ion-col>
         <ion-col size="6">
           <ion-item>
-            <ion-label>Gender</ion-label>
-            <ion-select placeholder="Select One">
-              <ion-select-option value="f">Female</ion-select-option>
-              <ion-select-option value="m">Male</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col size="6">
-          <ion-item>
-            <ion-label>Gender</ion-label>
-            <ion-select placeholder="Select One">
-              <ion-select-option value="f">Female</ion-select-option>
-              <ion-select-option value="m">Male</ion-select-option>
-            </ion-select>
+            <ion-label>Puntos</ion-label>
+            <ion-input formControlName="pointTOne" type="number"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-item>
             <ion-label>Puntos</ion-label>
-            <ion-input required type="number"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col size="6">
-          <ion-item>
-            <ion-label>Puntos</ion-label>
-            <ion-input required type="number"></ion-input>
+            <ion-input formControlName="pointTTwo" type="number"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-item>
             <ion-label>Sets</ion-label>
-            <ion-input required type="number"></ion-input>
+            <ion-input formControlName="setTOne" type="number"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-item>
             <ion-label>Sets</ion-label>
-            <ion-input required type="number"></ion-input>
+            <ion-input formControlName="setTTwo" type="number"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="12">
           <ion-item>
             <ion-label>Referee</ion-label>
-            <ion-select placeholder="Select One">
+            <ion-select formControlName="referee" placeholder="Select One">
               <ion-select-option value="f">Female</ion-select-option>
               <ion-select-option value="m">Male</ion-select-option>
             </ion-select>
           </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col padding size="12" text-center>
+          <ion-button color="primary" [disabled]="newGame.invalid" type="submit" expand="full">Registrar</ion-button>
         </ion-col>
       </ion-row>
     </form>
