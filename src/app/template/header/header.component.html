@@ -3,7 +3,7 @@
     <ion-menu-button slot="start" color="light"></ion-menu-button>
   </ion-buttons>
   <ion-title>{{title}}</ion-title>
-  <ion-buttons slot="end">
+  <ion-buttons *ngIf="!logged" slot="end">
     <ion-button (click)="doLogin()">
       <ion-icon float-right color="light" name="contact"></ion-icon>
     </ion-button>

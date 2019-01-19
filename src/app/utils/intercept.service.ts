@@ -9,13 +9,13 @@ import {
 } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()//{providedIn: 'root'}
 
 export class InterceptService implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private jwtHelperService: JwtHelperService) { }
 
   // intercept request and add token
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -35,6 +35,8 @@ export class InterceptService implements HttpInterceptor {
           if (event instanceof HttpResponse) {
             if (event.body.token) {
               sessionStorage.setItem("TOKEN", event.body.token);
+              let tokenRol = this.jwtHelperService.decodeToken(sessionStorage.TOKEN);
+              sessionStorage.setItem("ROL", tokenRol['role'])
             }
           }
         }, error => {
