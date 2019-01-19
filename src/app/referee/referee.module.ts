@@ -6,11 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RefereeRouting } from "./referee.routing";
 
 //Pages
-import { AddRefereePageModule } from "./add-referee/add-referee.module";
+import {  AddRefereePage } from "./add-referee/add-referee.page";
 
 
 const PlayerPages: any = [
-  AddRefereePageModule
+   AddRefereePage
 ];
 
 @NgModule({

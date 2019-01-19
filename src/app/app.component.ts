@@ -10,6 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  isLogged: boolean = false;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -18,6 +20,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
     translate.setDefaultLang('es')
+    this.userLogged();
   }
 
   initializeApp() {
@@ -26,4 +29,13 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  userLogged(): void {
+    if (sessionStorage.TOKEN) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+  }
+
 }
