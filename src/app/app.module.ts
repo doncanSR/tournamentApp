@@ -21,6 +21,8 @@ import { GameModule } from "./game/game.module";
 import { ManagersModule } from "./managers/managers.module";
 import { TeamModule } from "./team/team.module";
 import { TournamentModule } from "./tournament/tournament.module";
+import { PlayerModule } from "./player/player.module";
+import { RefereeModule } from "./referee/referee.module";
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -37,8 +39,10 @@ export function token(){
     ManagersModule,
     TournamentModule,
     TeamModule,
+    PlayerModule,
     GameModule,
     TabsPageModule, 
+    RefereeModule,
     TemplateModule,
     HttpClientModule,
     IonicModule.forRoot(), 

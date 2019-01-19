@@ -25,24 +25,26 @@ export class LoginPage implements OnInit {
     });
   }
   goHome() {
-    this.router.navigateByUrl('/tabs/(home:home)');
+    // this.router.navigateByUrl('/tabs/(home:home)');
+    this.router.navigateByUrl('/tabs/(home:home)', { skipLocationChange: true }).then(() =>
+      this.router.navigate(['']));
   }
 
-  get f() { return this.registerForm.controls; } 
+  get f() { return this.registerForm.controls; }
 
   doLogin() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
-    }else{
+    } else {
       this.methodService.post('role/auth', this.registerForm.value)
-      .subscribe(
-        data => {
-          this.goHome()
-        },
-        err => console.log('Error', err)
-      )
+        .subscribe(
+          data => {
+            this.goHome()
+          },
+          err => console.log('Error', err)
+        )
     }
   }
 }
