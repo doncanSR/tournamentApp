@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MethodService } from '../../utils/http/method.service';
 
 @Component({
   selector: 'app-new-tournament',
@@ -12,8 +11,7 @@ export class NewTournamentPage implements OnInit {
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private methodService: MethodService
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
