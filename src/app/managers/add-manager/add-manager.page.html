@@ -3,5 +3,48 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-grid fixed>
+    <form [formGroup]="newManager" (ngSubmit)="createRol()">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Rol</ion-label>
+            <ion-select formControlName="role">
+              <ion-select-option value="manager">Administrador de torneo</ion-select-option>
+              <ion-select-option value="capturist">Capturista</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" formControlName="name" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="this.newManager.value.role === 'manager'" size="12">
+          <ion-item>
+            <ion-label position="floating">Apellido paterno</ion-label>
+            <ion-input type="text" formControlName="firtsName" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="this.newManager.value.role === 'manager'" size="12">
+          <ion-item>
+            <ion-label position="floating">Apellido materno</ion-label>
+            <ion-input type="text" formControlName="secondName" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col padding size="12" text-center>
+          <ion-button color="primary" [disabled]="newManager.invalid" type="submit" expand="full">Registrar</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>
