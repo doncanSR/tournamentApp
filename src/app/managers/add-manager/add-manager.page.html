@@ -9,7 +9,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="floating">Rol</ion-label>
-            <ion-select formControlName="role">
+            <ion-select formControlName="rol">
               <ion-select-option value="manager">Administrador de torneo</ion-select-option>
               <ion-select-option value="capturist">Capturista</ion-select-option>
             </ion-select>
@@ -27,13 +27,19 @@
             <ion-input type="password" formControlName="password" class="form-control"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col *ngIf="this.newManager.value.role === 'manager'" size="12">
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Mail</ion-label>
+            <ion-input type="email" formControlName="email" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="newManager.value.rol === 'manager'" size="12">
           <ion-item>
             <ion-label position="floating">Apellido paterno</ion-label>
             <ion-input type="text" formControlName="firtsName" class="form-control"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col *ngIf="this.newManager.value.role === 'manager'" size="12">
+        <ion-col *ngIf="newManager.value.rol === 'manager'" size="12">
           <ion-item>
             <ion-label position="floating">Apellido materno</ion-label>
             <ion-input type="text" formControlName="secondName" class="form-control"></ion-input>
