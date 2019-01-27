@@ -19,7 +19,7 @@ export class InterceptService implements HttpInterceptor {
 
   // intercept request and add token
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+    let tokenRol
     // modify request
     if(sessionStorage.TOKEN){
       request = request.clone({
@@ -35,8 +35,11 @@ export class InterceptService implements HttpInterceptor {
           if (event instanceof HttpResponse) {
             if (event.body.token) {
               sessionStorage.setItem("TOKEN", event.body.token);
-              let tokenRol = this.jwtHelperService.decodeToken(sessionStorage.TOKEN);
+              tokenRol = this.jwtHelperService.decodeToken(sessionStorage.TOKEN);
               sessionStorage.setItem("ROL", tokenRol['role'])
+            }
+            if(event.body.id && tokenRol['role'] === 'coach'){
+              sessionStorage.setItem("NAME", event.body.id);
             }
           }
         }, error => {

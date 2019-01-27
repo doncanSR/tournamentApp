@@ -14,12 +14,6 @@
         </ion-col>
         <ion-col size="12">
           <ion-item>
-            <ion-label position="floating">Puntos</ion-label>
-            <ion-input formControlName="ponints" type="number"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col size="12">
-          <ion-item>
             <ion-label position="floating">Numero de jugadores</ion-label>
             <ion-input formControlName="playersNo" type="number"></ion-input>
           </ion-item>
@@ -30,12 +24,11 @@
             <ion-input formControlName="from" type="text"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col size="12">
+        <ion-col *ngIf="isntCoach" size="12">
           <ion-item>
             <ion-label position="floating">Coach</ion-label>
-            <ion-select formControlName="coachId">
-              <ion-select-option value="f">Female</ion-select-option>
-              <ion-select-option value="m">Male</ion-select-option>
+            <ion-select formControlName="coach">
+              <ion-select-option *ngFor="let coach of coaches" value="{{coach._id}}">{{coach.name + coach.firstName}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
