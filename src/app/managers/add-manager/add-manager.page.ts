@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ManagerService } from "../service/manager.service";
 import { AlertController } from '@ionic/angular';
+import { TournamentService } from "../../tournament/service/tournament.service";
 
 @Component({
   selector: 'app-add-manager',
@@ -13,11 +14,13 @@ export class AddManagerPage implements OnInit {
   newManager: FormGroup;
   submitted = false;
   isManager: boolean;
+  tournaments: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private managerService: ManagerService,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private tournamentService: TournamentService
   ) { }
 
   ngOnInit() {
@@ -32,8 +35,9 @@ export class AddManagerPage implements OnInit {
       password: ['', [Validators.required]],
       rol: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      firtsName: ['', []],
+      firstName: ['', []],
       secondName: ['', []],
+      tournamentId: ['', []]
     });
   }
 
@@ -50,7 +54,13 @@ export class AddManagerPage implements OnInit {
 
 
   chooseRol() {
-    (sessionStorage.ROL === 'admin') ? this.isManager = true : this.isManager = false;
+    if (sessionStorage.ROL === 'admin') {
+      this.isManager = true
+      this.getTournaments();
+    } else {
+      this.isManager = false;
+      this.newManager.value.tournamentId =  sessionStorage.Tournament;
+    }
   }
 
   createRol(): void {
@@ -59,27 +69,28 @@ export class AddManagerPage implements OnInit {
     if (this.newManager.invalid) {
       return;
     } else {
-      if (this.isManager && this.newManager.value.rol === 'manager') {
-        this.managerService.addManager(this.newManager.value).subscribe(
-          data => {
-            this.newManager.reset();
-            this.presentAlert();
-          },
-          err => {
-            console.log(err);
-          }
-        )
-      } else {
-        this.managerService.addCapturist(this.newManager.value).subscribe(
-          data => {
-            this.newManager.reset();
-            this.presentAlert();
-          },
-          err => {
-            console.log(err);
-          }
-        )
-      }
+      this.managerService.addManager(this.newManager.value).subscribe(
+        data => {
+          this.newManager.reset();
+          this.presentAlert();
+        },
+        err => {
+          console.log(err);
+        }
+      )
     }
   }
+
+  getTournaments() {
+    this.tournamentService.getTournaments().subscribe(
+      tournaments => {
+        this.tournaments = tournaments;
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
+  }
+
 }

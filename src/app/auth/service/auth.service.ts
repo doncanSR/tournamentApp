@@ -12,4 +12,12 @@ export class AuthService {
   login(user: any){
     return this.methodService.post('role/auth', user)
   }
+
+  singUp(coach:any){
+    return this.methodService.post('coach', coach)
+  }
+
+  logout(){
+    return this.methodService.post('role/auth/logout', null)
+  }
 }
