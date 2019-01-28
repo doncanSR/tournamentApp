@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TeamService } from '../service/team.service';
-import { AlertController } from '@ionic/angular'; 
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registry-team',
@@ -9,11 +9,11 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./registry-team.page.scss'],
 })
 
-export class RegistryTeamPage implements OnInit{
+export class RegistryTeamPage implements OnInit {
   newTeam: FormGroup;
   submitted: boolean = false;
   isntCoach: boolean = false;
-  coaches:any;
+  coaches: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,15 +54,14 @@ export class RegistryTeamPage implements OnInit{
   }
 
   getCoach() {
-    
     if (sessionStorage.ROL === 'coach') {
       this.newTeam.value.coach = sessionStorage.NAME;
     } else {
       this.isntCoach = true;
-      this.teamService.getCoachs().subscribe(
+      this.teamService.getCoaches().subscribe(
         data => {
           this.coaches = data;
-        }, 
+        },
         err => {
           console.log(err);
         }

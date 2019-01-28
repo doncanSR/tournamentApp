@@ -14,8 +14,12 @@ export class ManagerService {
     return this.methodService.post('role', manager)
   }
 
-  addCapturist(capturist: any) {
-    return this.methodService.post('capturist', capturist)
+  getCapturist() {
+    return this.methodService.get('capturist', null)
+  }
+
+  getManager() {
+    return this.methodService.get('manager', null)
   }
 
 }

@@ -14,7 +14,7 @@ export class TeamService {
     return this.methodService.post('teams', team)
   }
 
-  getCoachs(){
+  getCoaches(){
     return this.methodService.get('coach',null)
   }
 

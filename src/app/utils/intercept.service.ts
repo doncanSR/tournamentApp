@@ -38,8 +38,11 @@ export class InterceptService implements HttpInterceptor {
               tokenRol = this.jwtHelperService.decodeToken(sessionStorage.TOKEN);
               sessionStorage.setItem("ROL", tokenRol['role'])
             }
-            if(event.body.id && tokenRol['role'] === 'coach'){
-              sessionStorage.setItem("NAME", event.body.id);
+            if(event.body.name && tokenRol['role'] === 'coach'){
+              sessionStorage.setItem("NAME", event.body.name);
+            }
+            if (event.body.tournament) {
+              sessionStorage.setItem("Tournament", event.body.tournament);
             }
           }
         }, error => {

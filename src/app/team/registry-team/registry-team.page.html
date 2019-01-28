@@ -28,7 +28,7 @@
           <ion-item>
             <ion-label position="floating">Coach</ion-label>
             <ion-select formControlName="coach">
-              <ion-select-option *ngFor="let coach of coaches" value="{{coach._id}}">{{coach.name + coach.firstName}}</ion-select-option>
+              <ion-select-option *ngFor="let coach of coaches" value="{{coach._id}}">{{coach.name +' '+ coach.firstName}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
