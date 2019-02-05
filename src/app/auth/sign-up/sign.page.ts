@@ -35,16 +35,17 @@ export class SignPage implements OnInit {
     this.newCoach = this.formBuilder.group({
       name: ['', [Validators.required]],
       password: ['', [Validators.required]],
+      email:['',[Validators.required, Validators.email]],
       firtsName: ['', []],
       secondName: ['', []],
-      association: ['', []],
-      teamId: ['', []]
+      rol: ['',[]],
+      tournamentId: ['',[]]
     });
   }
 
   createCoach(): void{
     this.submitted = true;
-
+    this.newCoach.value.rol = 'coach';
     if (this.newCoach.invalid) {
       return;
     } else {
