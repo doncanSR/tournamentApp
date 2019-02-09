@@ -15,7 +15,14 @@ export class ModalErrorPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.error = this.navParams.get('error');
+    if (this.navParams.get('error')) {
+      this.error = this.navParams.get('error');
+    } else {
+      this.error = {
+        message: 'Generic error',
+        code: '010'
+      }
+    }
   }
 
   dismiss(){
