@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Ups algo anda mal</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h3>
+          Error debido a:
+        </h3>
+        <p>{{error.message}}</p>
+        <h3>Error code:</h3>
+        <p>{{error.code}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button fill="outline" shape="round" expand="full" color="danger" size="large" (click)="dismiss()">
+          Entendido
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
