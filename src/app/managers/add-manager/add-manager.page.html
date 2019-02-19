@@ -10,8 +10,9 @@
           <ion-item>
             <ion-label position="floating">Rol</ion-label>
             <ion-select formControlName="rol">
-              <ion-select-option value="manager">Administrador de torneo</ion-select-option>
+              <ion-select-option *ngIf="isManager" value="manager">Administrador de torneo</ion-select-option>
               <ion-select-option value="capturist">Capturista</ion-select-option>
+              <ion-select-option value="coach">Coach</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
@@ -33,16 +34,24 @@
             <ion-input type="email" formControlName="email" class="form-control"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col *ngIf="newManager.value.rol === 'manager'" size="12">
+        <ion-col size="12">
           <ion-item>
             <ion-label position="floating">Apellido paterno</ion-label>
             <ion-input type="text" formControlName="firtsName" class="form-control"></ion-input>
           </ion-item>
         </ion-col>
-        <ion-col *ngIf="newManager.value.rol === 'manager'" size="12">
+        <ion-col size="12">
           <ion-item>
             <ion-label position="floating">Apellido materno</ion-label>
             <ion-input type="text" formControlName="secondName" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="isManager" size="12">
+          <ion-item>
+            <ion-label position="floating">Torneo</ion-label>
+            <ion-select formControlName="tournamentId">
+              <ion-select-option *ngFor="let tournamnet of tournaments" value="{{tournamnet._id}}">{{tournamnet.name}}</ion-select-option>
+            </ion-select>
           </ion-item>
         </ion-col>
       </ion-row>
