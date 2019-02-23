@@ -18,6 +18,8 @@ import { PlayerService } from "./player/service/player.service";
 import { RefereeService } from "./referee/service/referee.service";
 import { TeamService } from "./team/service/team.service";
 import { TournamentService } from "./tournament/service/tournament.service";
+import { HandleErrorsService } from "./utils/handle-errors/handle-errors.service";
+import { ModalServiceService } from "./utils/modal-service/modal-service.service";
 //Module core
 import { AuthModule } from "./auth/auth.module";
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +32,7 @@ import { TeamModule } from "./team/team.module";
 import { TournamentModule } from "./tournament/tournament.module";
 import { PlayerModule } from "./player/player.module";
 import { RefereeModule } from "./referee/referee.module";
-
+import { ModalErrorPage } from './utils/modal-service/modal-error/modal-error.page';
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
@@ -38,8 +40,13 @@ export function token(){
   return sessionStorage.TOKEN || null;
 }
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [
+    AppComponent,
+    ModalErrorPage
+  ],
+  entryComponents: [
+    ModalErrorPage
+  ],
   imports: [
     BrowserModule,
     AuthModule,
@@ -81,6 +88,8 @@ export function token(){
     ManagerService,
     TeamService,
     TournamentService,
+    HandleErrorsService,
+    ModalServiceService,
     RefereeService,
     AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

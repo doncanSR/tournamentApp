@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MethodService } from '../../utils/http/method.service';
 
 
 @Component({
@@ -28,9 +27,7 @@ export class HomePage implements OnInit {
   ]
 
   constructor(
-    
   ) { }
   ngOnInit() {
-
   }
 }
