@@ -1,0 +1,33 @@
+{
+  "WELCOME": "Bienvenido",
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Iniciar sesion",
+      "EMAIL": "Correo electronico",
+      "PASSWORD": "Contaseña",
+      "ACTION": "Entrar",
+      "LOGOUT":"Salir"
+    },
+    "RECOVER_PASSWORD": "Recuperar contraseña",
+    "SING_UP": "Registrate",
+    "ERROR":"Esta campo es requerido",
+    "ERROR_PASSWORD": "La contraseña debe de contener al menos 8 caracteres",
+    "ERROR_MAIL":"La direccion de correo es invalida"
+  },
+  "TABS": {
+    "HOME": "Inico",
+    "RESULT": "Resultado",
+    "TEAM": "Equipo"
+  },
+  "TOURNAMENT": {
+    "NEW_TORNAMENT":{
+      "TITLE": "Iniciar nuevo torneo",
+      "NAME": "Nombre",
+      "STATE":"Estado",
+      "CITY": "Ciudad",
+      "START_DATE": "Fecha de inicio",
+      "END_DATE": "Fecha de termino",
+      "ACTION": "Crear"
+    }
+  }
+}

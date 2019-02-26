@@ -1,0 +1,16 @@
+<ion-header>
+  <app-header title="Inicio"></app-header>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let card of cards">
+    <ion-card-header>
+      <ion-card-subtitle>{{card.subTitle}}</ion-card-subtitle>
+      <ion-card-title>{{card.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{card.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

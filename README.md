@@ -41,7 +41,7 @@ npm install
 
 after that you just need to run 
 ```
-ionic serve
+ng serve
 ```
 You just need to open in your browser the url that it will recomend to you. 
 
@@ -51,9 +51,14 @@ You just need to open in your browser the url that it will recomend to you.
 * fix(moduleName): resume changes  || this will be used to fix something to the app.
 * refactor(moduleName): resume changes  || this will be used to refactor some module.
 
+## Use angular CLI
+
+This project need angular 6 CLI, to create components, directives, services, modules, etc.
+https://github.com/angular/angular-cli/ 
+
 ## Authors
 
 * **Julio Cesar Ramirez Jimenez** - *Initial work* - [Julio Cesar](https://github.com/JulioCesarRamirez)
 
-* **Doncan Sanchez** - *Initial work*
+* **Doncan Alexis Sanchez Rico** - *Initial work* [Doncan](https://github.com/doncanSR)
 

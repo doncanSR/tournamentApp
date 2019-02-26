@@ -1,0 +1,45 @@
+<ion-header>
+  <app-header title="Registar equipo"></app-header>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid fixed>
+    <form [formGroup]="newTeam" (ngSubmit)="createTeam()">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre del equipo</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Numero de jugadores</ion-label>
+            <ion-input formControlName="playersNo" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Estado de origen</ion-label>
+            <ion-input formControlName="from" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="isntCoach" size="12">
+          <ion-item>
+            <ion-label position="floating">Coach</ion-label>
+            <ion-select formControlName="coach">
+              <ion-select-option *ngFor="let coach of coaches" value="{{coach._id}}">{{coach.name +' '+ coach.firstName}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="primary" expand="full" type="submit" [disabled]="newTeam.invalid">
+            Crear equipo
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

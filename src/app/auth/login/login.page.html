@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon slot="start" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ 'AUTH.LOGIN.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid fixed>
+    <form [formGroup]="registerForm" (ngSubmit)="doLogin()">
+      <ion-row>
+        <ion-col text-center size="12">
+          <h1>{{ 'WELCOME' | translate }}</h1>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.email.errors }" position="floating">{{
+              'AUTH.LOGIN.EMAIL' | translate}}</ion-label>
+            <ion-input type="text" formControlName="email" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="submitted && f.email.errors" class="invalid-feedback" size="12">
+          <ion-text padding color="danger">
+            <span *ngIf="f.email.errors.required" color="danger">{{ 'AUTH.ERROR' |translate}}</span>
+            <span *ngIf="f.email.errors.email" color="danger">{{ 'AUTH.ERROR_MAIL' |translate}}</span>
+          </ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label [ngClass]="{ 'is-invalid': submitted && f.password.errors }" position="floating">{{
+              'AUTH.LOGIN.PASSWORD' | translate}}</ion-label>
+            <ion-input type="password" formControlName="password" class="form-control"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="submitted && f.email.errors" class="invalid-feedback" size="12">
+          <ion-text padding color="danger">
+            <span *ngIf="f.password.errors.required" color="danger">{{ 'AUTH.ERROR' |translate}}</span>
+            <span *ngIf="f.password.errors.minlength" color="danger">{{ 'AUTH.ERROR_PASSWORD' |translate}}</span>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col margin-vertical text-center padding size="12">
+          <a [href]="'/recovery-password'">{{ 'AUTH.RECOVER_PASSWORD' | translate}}</a>
+        </ion-col>
+        <ion-col margin-vertical text-center padding size="12">
+            <a [href]="'/sign-up'">Registrate</a>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col padding size="12" text-center>
+          <ion-button color="primary" [disabled]="registerForm.invalid" type="submit" expand="full">{{ 'AUTH.LOGIN.ACTION' |
+            translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,14 @@
+ion-toolbar.nav-style {
+  padding: 60px 0px 60px 30px;
+  color: white;
+  ion-title {
+    padding: 0%;
+  }
+}
+ion-item {
+  --border-color: white;
+  color: var( --ion-color-medium);
+  a{
+    text-decoration: none;
+  }
+}
