@@ -13,4 +13,8 @@ export class TournamentService {
   getTournaments(){
     return this.methodService.get('tournament', null);
   }
+
+  addTournament(tournament: any){
+    return this.methodService.post('tournament', tournament);
+  }
 }
