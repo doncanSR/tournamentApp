@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 interface Coach{
   name: string,
   password: string,
-  role: string,
+  rol: string,
   firtName: string,
   secondName: string,
   association: string,

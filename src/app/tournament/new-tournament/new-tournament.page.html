@@ -31,7 +31,7 @@
           <ion-item>
             <ion-label [ngClass]="{ 'is-invalid': submitted && f.city.errors }" position="floating">{{
               'TOURNAMENT.NEW_TORNAMENT.START_DATE' | translate}}</ion-label>
-            <ion-datetime formControlName="starDate" class="form-control" displayFormat="MM DD YY"></ion-datetime>
+            <ion-datetime formControlName="starDate" class="form-control" displayFormat="YYYY-MM-DD"></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size="12">
