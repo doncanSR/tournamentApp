@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable()
 export class MethodService {
 
-  public api = 'http://127.0.0.1:3000/';
+  public api = 'http://192.168.100.10:3000/';
 
 
   constructor(

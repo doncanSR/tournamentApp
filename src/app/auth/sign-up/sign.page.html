@@ -4,6 +4,9 @@
 <ion-content padding>
   <ion-grid fixed>
     <form [formGroup]="newCoach" (ngSubmit)="createCoach()">
+      <ion-item>
+        <ion-button (click)="presentLoading()">Default</ion-button>
+      </ion-item>
       <ion-row>
         <ion-col size="12">
           <ion-item>

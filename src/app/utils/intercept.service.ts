@@ -23,13 +23,14 @@ export class InterceptService implements HttpInterceptor {
 
   // intercept request and add token
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let tokenRol
+    let tokenRol;
     // modify request
     if (sessionStorage.TOKEN) {
       request = request.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'x-access-token': sessionStorage.TOKEN
+          'x-access-token': sessionStorage.TOKEN,
+          'TournamentID': sessionStorage.tournamentID
         })
       });
     }
